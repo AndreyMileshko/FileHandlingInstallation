@@ -2,6 +2,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -50,6 +52,9 @@ public class Main {
     }
 
     public static void appendedLogs(StringBuilder sb, File file) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time = sdf.format(new Date(file.lastModified()));
+
         sb.append(" | ")
                 .append(file.getName())
                 .append(" | ")
@@ -59,8 +64,8 @@ public class Main {
                 .append("Размер файла: ")
                 .append(file.length())
                 .append(" байт | ")
-                .append("время последнего изменения файла(количество миллисекунд, прошедших с начала эпохи Unix): ")
-                .append(file.lastModified())
+                .append("время последнего изменения файла: ")
+                .append(time)
                 .append(" |\n");
     }
 }
