@@ -52,7 +52,7 @@ public class Main {
     }
 
     public static void appendedLogs(StringBuilder sb, File file) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String time = sdf.format(new Date(file.lastModified()));
 
         sb.append(" | ")
